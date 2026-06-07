@@ -81,6 +81,8 @@ body {
     transform: rotate(-90deg) translateZ(20px);
     width: 500px;
     height: 500px;
+    max-width: 100%;
+    max-height: 100%;
     filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.15));
     transition: transform 0.1s ease-out;
 }
@@ -371,4 +373,169 @@ body {
 .hidden {
     opacity: 0 !important;
     pointer-events: none !important;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    body {
+        overflow-y: auto; /* Allow scrolling on smaller screens */
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 40px 20px;
+        height: auto;
+        min-height: 100vh;
+        gap: 30px;
+    }
+
+    .header-info {
+        position: relative;
+        top: auto;
+        left: auto;
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 0;
+        box-shadow: 0 4px 24px rgba(31, 38, 135, 0.1);
+    }
+
+    .sidebar {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        max-width: 420px;
+        margin: 20px auto 0 auto;
+        max-height: 500px; /* high enough to show content */
+        opacity: 1;
+        transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease, margin 0.4s ease, border-color 0.4s ease;
+    }
+
+    .sidebar.hidden {
+        max-height: 0;
+        opacity: 0;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        border-top-width: 0 !important;
+        border-bottom-width: 0 !important;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .clock-container {
+        width: 100%;
+        max-width: 420px;
+        height: 420px;
+        margin: 0 auto;
+    }
+
+    .clock-svg {
+        width: 360px;
+        height: 360px;
+    }
+
+    .center-button {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .center-button svg {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Adjust floating label positions for smaller container */
+    .label-time {
+        top: 18%;
+        left: 8%;
+        font-size: 1.1rem;
+    }
+
+    .label-seconds {
+        top: 26%;
+        right: 8%;
+        font-size: 1.1rem;
+    }
+
+    .label-date {
+        bottom: 15%;
+        left: 15%;
+        font-size: 0.95rem;
+    }
+
+    .label-ampm {
+        bottom: 26%;
+        right: 15%;
+        font-size: 1rem;
+    }
+
+    #alarm-ringing-overlay {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        width: auto;
+        justify-content: center;
+        z-index: 999;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 10px;
+        gap: 15px;
+    }
+
+    .header-info {
+        padding: 15px;
+    }
+
+    .header-info h1 {
+        font-size: 1.5rem;
+    }
+
+    .clock-container {
+        max-width: 320px;
+        height: 320px;
+    }
+
+    .clock-svg {
+        width: 280px;
+        height: 280px;
+    }
+
+    .center-button {
+        width: 75px;
+        height: 75px;
+    }
+
+    .center-button svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .label-time {
+        top: 20%;
+        left: 5%;
+        font-size: 0.95rem;
+    }
+
+    .label-seconds {
+        top: 28%;
+        right: 5%;
+        font-size: 0.95rem;
+    }
+
+    .label-date {
+        bottom: 18%;
+        left: 12%;
+        font-size: 0.85rem;
+    }
+
+    .label-ampm {
+        bottom: 28%;
+        right: 12%;
+        font-size: 0.85rem;
+    }
 }
