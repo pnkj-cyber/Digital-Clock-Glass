@@ -309,6 +309,8 @@ btnStopAlarm.addEventListener('click', () => {
 
 // 3D Tilt Effect
 document.addEventListener('mousemove', (e) => {
+    if (window.innerWidth <= 768) return; // Disable tilt on mobile for stability and performance
+    
     const centerX = window.innerWidth / 2;
     const centerY = window.innerHeight / 2;
     
@@ -323,6 +325,8 @@ document.addEventListener('mousemove', (e) => {
 });
 
 document.addEventListener('mouseleave', () => {
+    if (window.innerWidth <= 768) return;
+    
     clockContainer.style.transform = `rotateX(0deg) rotateY(0deg)`;
     clockContainer.style.transition = `transform 0.5s ease-out`;
     
